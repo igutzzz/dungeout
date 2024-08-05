@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://r7iksiahmxhd"]
+
+[ext_resource type="PackedScene" uid="uid://bgqktx763d2q2" path="res://scenes/rooms/room.tscn" id="1_6d3aw"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_e66k8"]
+[ext_resource type="PackedScene" uid="uid://b3q2hub7j4j0v" path="res://player/player.tscn" id="1_k66g0"]
+[ext_resource type="Script" path="res://player/player.gd" id="2_2lk2d"]
+
+[node name="World" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_e66k8")
+
+[node name="Room" parent="." instance=ExtResource("1_6d3aw")]
+
+[node name="Player" parent="." instance=ExtResource("1_k66g0")]
+position = Vector2(127, 80)
+script = ExtResource("2_2lk2d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(120, 88)
+offset = Vector2(20, 0)
+zoom = Vector2(0.415, 0.415)
+position_smoothing_enabled = true

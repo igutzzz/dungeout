@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://r7iksiahmxhd"]
+
+[ext_resource type="PackedScene" uid="uid://bgqktx763d2q2" path="res://scenes/rooms/room.tscn" id="1_6d3aw"]
+[ext_resource type="Script" path="res://scripts/LevelGenerator.gd" id="1_fssb0"]
+[ext_resource type="PackedScene" uid="uid://cjicmi7vsnvol" path="res://scenes/rooms/startRoom.tscn" id="2_kxsu1"]
+[ext_resource type="PackedScene" uid="uid://lh4fk43qsdn2" path="res://scenes/rooms/chestRoom.tscn" id="4_bhx8k"]
+[ext_resource type="PackedScene" uid="uid://dmwhx5mgv8tx0" path="res://scenes/rooms/bossRoom.tscn" id="5_hmw3r"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="6_hvsgs"]
+
+[node name="World" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_fssb0")
+number_of_rooms = 20
+number_of_treasure_rooms = 3
+start_room = ExtResource("2_kxsu1")
+normal_rooms = Array[PackedScene]([ExtResource("1_6d3aw")])
+treasure_rooms = Array[PackedScene]([ExtResource("4_bhx8k")])
+boss_rooms = Array[PackedScene]([ExtResource("5_hmw3r")])
+
+[node name="Rooms" type="Node2D" parent="." groups=["rooms"]]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+zoom = Vector2(3, 3)
+script = ExtResource("6_hvsgs")
