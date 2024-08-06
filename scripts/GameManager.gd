@@ -1,14 +1,15 @@
 extends Node
 
-var number_of_rooms = 10
+signal room_entered(room)
 
 var camera_position
 var camera_zoom
 
 func _ready():
 
-	camera_position = get_tree().get_first_node_in_group("camera").position
-	camera_zoom = get_tree().get_first_node_in_group("camera").zoom
+	room_entered.connect(func(room):
+		camera_position = room.global_position
+		)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
