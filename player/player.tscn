@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3q2hub7j4j0v"]
+[gd_scene load_steps=11 format=3 uid="uid://b3q2hub7j4j0v"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_463qm"]
 [ext_resource type="Texture2D" uid="uid://ci68ah6faus3c" path="res://sprites/player.png" id="1_d0s4r"]
+[ext_resource type="PackedScene" uid="uid://bdulmjpyof2en" path="res://scenes/items/knife/knife.tscn" id="2_rn74d"]
 
 [sub_resource type="Animation" id="Animation_o004y"]
 length = 0.001
@@ -106,6 +107,11 @@ y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_463qm")
 
+[node name="Knife" parent="." instance=ExtResource("2_rn74d")]
+position = Vector2(4.41074e-06, 7)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_d0s4r")
@@ -117,5 +123,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_3yqyb")
