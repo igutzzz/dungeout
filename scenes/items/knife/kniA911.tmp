@@ -8,7 +8,6 @@ radius = 3.37059
 height = 10.0416
 
 [node name="Knife" type="Area2D"]
-collision_mask = 4
 script = ExtResource("1_st148")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

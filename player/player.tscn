@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_463qm"]
 [ext_resource type="Texture2D" uid="uid://ci68ah6faus3c" path="res://sprites/player.png" id="1_d0s4r"]
-[ext_resource type="PackedScene" uid="uid://bdulmjpyof2en" path="res://scenes/items/knife/knife.tscn" id="2_rn74d"]
+[ext_resource type="PackedScene" uid="uid://bdulmjpyof2en" path="res://scenes/items/knife/knife.tscn" id="3_8wbh6"]
 
 [sub_resource type="Animation" id="Animation_o004y"]
 length = 0.001
@@ -102,15 +102,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyb"]
 size = Vector2(7, 5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_463qm")
-
-[node name="Knife" parent="." instance=ExtResource("2_rn74d")]
-position = Vector2(4.41074e-06, 7)
-rotation = 1.5708
-scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -123,6 +118,18 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_3yqyb")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Knife" parent="Weapon" instance=ExtResource("3_8wbh6")]
+scale = Vector2(0.5, 0.5)
+knifePosition = Vector2(-4, 5)
+knifeRotation = -90.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon/Knife"]

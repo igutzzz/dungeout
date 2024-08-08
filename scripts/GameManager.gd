@@ -4,6 +4,7 @@ signal room_entered(room)
 
 var camera_position
 var camera_zoom
+var player: CharacterBody2D
 
 func _ready():
 

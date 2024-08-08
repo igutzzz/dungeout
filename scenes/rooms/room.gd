@@ -1,8 +1,9 @@
 extends Node2D
 
-
+@onready var player: CharacterBody2D = $Player
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.player = player
 	pass # Replace with function body.
 
 
@@ -12,4 +13,5 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	GameManager.room_entered.emit(self)
+	if body.is_in_group("player"):
+		GameManager.room_entered.emit(self)

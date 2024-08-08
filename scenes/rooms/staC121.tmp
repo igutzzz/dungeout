@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgqktx763d2q2"]
+[gd_scene load_steps=7 format=3 uid="uid://b7cej8416ie0v"]
 
 [ext_resource type="Texture2D" uid="uid://cxrlvon2agu0b" path="res://sprites/tileset.png" id="1_8xbeg"]
-[ext_resource type="Script" path="res://scenes/rooms/room.gd" id="1_ptqf2"]
-[ext_resource type="PackedScene" uid="uid://ce5844lgl4ecl" path="res://scenes/enemies/enemy.tscn" id="3_gkkga"]
+[ext_resource type="Script" path="res://scenes/rooms/startRoom.gd" id="1_78og6"]
+[ext_resource type="PackedScene" uid="uid://b3q2hub7j4j0v" path="res://player/player.tscn" id="2_ib8sg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ae58"]
 texture = ExtResource("1_8xbeg")
@@ -238,39 +238,30 @@ texture = ExtResource("1_8xbeg")
 
 [sub_resource type="TileSet" id="TileSet_u5if5"]
 physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 5
 sources/3 = SubResource("TileSetAtlasSource_0ae58")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfkua"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb3qs"]
 size = Vector2(192, 127)
 
 [node name="Room" type="Node2D"]
-y_sort_enabled = true
-script = ExtResource("1_ptqf2")
+script = ExtResource("1_78og6")
 
 [node name="TileMap2" type="TileMap" parent="."]
+y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_u5if5")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 196611, 1, 1, 131075, 2, 2, 131075, 2, 3, 131075, 2, 4, 131075, 2, 5, 131075, 2, 6, 131075, 2, 7, 131075, 2, 8, 131075, 2, 9, 131075, 2, 10, 131075, 2, 65536, 196611, 0, 131072, 196611, 0, 196608, 196611, 0, 262144, 196611, 0, 327680, 196611, 0, 393216, 196611, 0, 65537, 3, 3, 131073, 3, 3, 196609, 3, 3, 262145, 3, 3, 327681, 3, 3, 393217, 3, 3, 65538, 3, 3, 131074, 3, 3, 196610, 3, 3, 262146, 3, 3, 327682, 3, 3, 393218, 3, 3, 65539, 3, 3, 131075, 3, 3, 196611, 3, 3, 262147, 3, 3, 327683, 3, 3, 393219, 3, 3, 65540, 3, 3, 131076, 3, 3, 196612, 3, 3, 262148, 3, 3, 327684, 3, 3, 393220, 3, 3, 65541, 3, 3, 131077, 3, 3, 196613, 3, 3, 262149, 3, 3, 327685, 3, 3, 393221, 3, 3, 65542, 3, 3, 131078, 3, 3, 196614, 3, 3, 262150, 3, 3, 327686, 3, 3, 393222, 3, 3, 65543, 3, 3, 131079, 3, 3, 196615, 3, 3, 262151, 3, 3, 327687, 3, 3, 393223, 3, 3, 65544, 3, 3, 131080, 3, 3, 196616, 3, 3, 262152, 3, 3, 327688, 3, 3, 393224, 3, 3, 65545, 3, 3, 131081, 3, 3, 196617, 3, 3, 262153, 3, 3, 327689, 3, 3, 393225, 3, 3, 65546, 3, 3, 131082, 3, 3, 196618, 3, 3, 262154, 3, 3, 327690, 3, 3, 393226, 3, 3, 458762, 458755, 6, 458761, 458755, 6, 458760, 458755, 6, 458759, 458755, 6, 458758, 458755, 6, 458757, 458755, 6, 458756, 458755, 6, 458755, 458755, 6, 458754, 458755, 6, 458753, 458755, 6, 458752, 393219, 6, 65547, 262147, 0, 131083, 262147, 0, 196619, 262147, 0, 262155, 262147, 0, 327691, 262147, 0, 393227, 262147, 0, 458763, 524291, 6, 11, 131075, 1)
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(0, 196611, 1, 1, 131075, 2, 2, 131075, 2, 3, 131075, 2, 4, 131075, 2, 5, 131075, 2, 6, 131075, 2, 7, 131075, 2, 8, 131075, 2, 9, 131075, 2, 10, 131075, 2, 65536, 196611, 0, 131072, 196611, 0, 196608, 196611, 0, 262144, 196611, 0, 327680, 196611, 0, 393216, 196611, 0, 65537, 3, 3, 131073, 131075, 4, 196609, 3, 3, 262145, 3, 3, 327681, 3, 3, 393217, 3, 3, 65538, 3, 3, 131074, 3, 3, 196610, 3, 3, 262146, 3, 3, 327682, 3, 3, 393218, 3, 3, 65539, 3, 3, 131075, 3, 3, 196611, 3, 3, 262147, 3, 3, 327683, 3, 3, 393219, 3, 3, 65540, 3, 3, 131076, 3, 3, 196612, 3, 3, 262148, 3, 3, 327684, 3, 3, 393220, 3, 3, 65541, 3, 3, 131077, 3, 3, 196613, 3, 3, 262149, 3, 3, 327685, 3, 3, 393221, 3, 3, 65542, 3, 3, 131078, 3, 3, 196614, 3, 3, 262150, 3, 3, 327686, 3, 3, 393222, 3, 3, 65543, 3, 3, 131079, 3, 3, 196615, 3, 3, 262151, 3, 3, 327687, 3, 3, 393223, 3, 3, 65544, 3, 3, 131080, 3, 3, 196616, 3, 3, 262152, 3, 3, 327688, 131075, 4, 393224, 3, 3, 65545, 3, 3, 131081, 3, 3, 196617, 3, 3, 262153, 3, 3, 327689, 3, 3, 393225, 3, 3, 65546, 3, 3, 131082, 131075, 4, 196618, 3, 3, 262154, 3, 3, 327690, 3, 3, 393226, 3, 3, 458762, 458755, 6, 458761, 458755, 6, 458760, 458755, 6, 458759, 458755, 6, 458758, 458755, 6, 458757, 458755, 6, 458756, 458755, 6, 458755, 458755, 6, 458754, 458755, 6, 458753, 458755, 6, 458752, 393219, 6, 65547, 262147, 0, 131083, 262147, 0, 196619, 262147, 0, 262155, 262147, 0, 327691, 262147, 0, 393227, 262147, 0, 458763, 524291, 6, 11, 131075, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_ib8sg")]
+z_index = 1
+position = Vector2(91, 64)
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(96, 64.5)
-shape = SubResource("RectangleShape2D_yfkua")
-
-[node name="Enemy" parent="." instance=ExtResource("3_gkkga")]
-position = Vector2(100, 55)
-scale = Vector2(0.6, 0.6)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_gkkga")]
-position = Vector2(141, 37)
-scale = Vector2(0.6, 0.6)
-
-[node name="Enemy3" parent="." instance=ExtResource("3_gkkga")]
-position = Vector2(50, 37)
-scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_mb3qs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

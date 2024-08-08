@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	GameManager.room_entered.emit(self)
+	if body.is_in_group("player"):
+		GameManager.room_entered.emit(self)
